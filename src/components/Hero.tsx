@@ -49,7 +49,7 @@ export default function Hero() {
             <i>Builder</i>
           </motion.div>
           <motion.p className="lede" {...itemAnim}>
-            3rd-year B.Tech Data Science student building <b>AI systems, data pipelines, and developer tools</b>{" "}
+            Final-year B.Tech Data Science student building <b>AI systems, data pipelines, and developer tools</b>{" "}
             that turn messy, unstructured data into decisions. Now a <b>Junior Software Developer</b> at{" "}
             <b>ListenFirst Media</b>, building tools and data systems for media intelligence.
           </motion.p>

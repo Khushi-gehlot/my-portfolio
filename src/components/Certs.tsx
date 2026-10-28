@@ -38,7 +38,7 @@ export default function Certs() {
             <span className="l">Current CGPA / 10</span>
           </div>
           <div className="mono" style={{ color: "var(--muted)", marginTop: 16 }}>
-            3rd year · expected 2027
+            4th year · expected 2027
           </div>
         </StaggerItem>
         <StaggerItem>

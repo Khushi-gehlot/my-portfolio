@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/data/content";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,6 +58,7 @@ export default function Nav() {
             ))}
           </nav>
           <div className="nav-cta">
+            <ThemeToggle />
             <a href="mailto:khushigehlot75@gmail.com" className="btn btn-primary mag">
               Let&apos;s talk
             </a>
@@ -81,6 +83,7 @@ export default function Nav() {
             {l.label}
           </a>
         ))}
+        <ThemeToggle variant="inline" />
       </div>
     </>
   );

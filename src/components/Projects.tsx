@@ -51,7 +51,12 @@ export default function Projects() {
               Read case study
               <ArrowRight size={16} />
             </button>
-            <a href={SOCIALS.github} target="_blank" rel="noopener noreferrer" className="btn mag">
+            <a
+              href="https://github.com/khushi-gehlot/AI-Loan-Advisory-Chatbot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn mag"
+            >
               Code
             </a>
           </div>
@@ -133,7 +138,7 @@ export default function Projects() {
             <span className="open">
               <ArrowUpRight size={18} />
             </span>
-            <div className="pnum">P/06 · index</div>
+            <div className="pnum">P/07 · index</div>
             <div className="pt">More on GitHub →</div>
             <div className="pd">
               Experiments, coursework and works-in-progress live on my GitHub and LeetCode (

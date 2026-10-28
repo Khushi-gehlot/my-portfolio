@@ -79,11 +79,11 @@ a{color:inherit;text-decoration:none}
 .mono{font-family:var(--font-m);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-m);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--pink-soft)}
 .eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,transparent,var(--pink))}
-.sec-head{margin:0 0 40px}
+.sec-head{margin:0 0 30px}
 .sec-index{font-family:var(--font-m);font-size:12px;color:var(--muted-2);letter-spacing:.14em}
 h2.sec-title{font-family:var(--font-d);font-weight:800;font-size:clamp(2rem,5.2vw,3.4rem);line-height:1.02;letter-spacing:-.02em;margin:14px 0 0;text-wrap:balance}
 .sec-sub{color:var(--muted);max-width:60ch;margin:14px 0 0;font-size:1.02rem}
-.pad{padding-block:clamp(72px,11vw,132px)}
+.pad{padding-block:clamp(46px,7vw,84px)}
 .divider{height:1px;background:linear-gradient(90deg,transparent,var(--line-2),transparent);border:0;margin:0}
 
 /* buttons */
@@ -123,7 +123,7 @@ nav.links a.active{color:var(--ink);background:rgba(255,134,184,.08)}
 .mobile-menu a span{font-family:var(--font-m);font-size:.9rem;color:var(--pink)}
 
 /* ===== HERO ===== */
-.hero{min-height:92vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative}
+.hero{min-height:auto;display:flex;align-items:center;padding-top:116px;padding-bottom:44px;position:relative}
 #hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.65}
 .hero-in{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,5vw,66px);align-items:center}
 .hero-copy{min-width:0}
@@ -396,3 +396,48 @@ footer{border-top:1px solid var(--line);padding:38px 0 46px;position:relative;z-
 .meta-card,.pcard,.cert,.now-card{height:100%}
 .edu-grid>*{min-width:0}
 .edu-side{height:100%}
+
+/* ============================================================
+   LIGHT THEME  (default is dark; toggle sets data-theme="light")
+   ============================================================ */
+:root[data-theme="light"]{
+  --bg:#fdf6f9;
+  --bg-1:#fbeef3;
+  --bg-2:#f9e9f0;
+  --bg-3:#f4dde8;
+  --ink:#1b0f15;
+  --ink-2:#452c38;
+  --muted:#8a6476;
+  --muted-2:#b094a2;
+  --line:rgba(200,30,99,.15);
+  --line-2:rgba(200,30,99,.30);
+  --pink:#e24a89;
+  --pink-soft:#c42d78;
+  --pink-deep:#a31857;
+  --rose:#d1557f;
+  --glow:rgba(226,74,137,.20);
+  --glow-soft:rgba(226,74,137,.10);
+  --good:#1f9d68;
+}
+/* surfaces that were hard-coded dark need a light counterpart */
+:root[data-theme="light"] header.nav.scrolled{background:rgba(253,246,249,.78)}
+:root[data-theme="light"] .mobile-menu{background:rgba(253,246,249,.98)}
+:root[data-theme="light"] .pf-right{background:rgba(0,0,0,.02)}
+:root[data-theme="light"] ::selection{background:var(--pink);color:#fff}
+:root[data-theme="light"] .bg-noise{opacity:.03}
+/* keep the terminal dark in both themes, so its text stays readable */
+:root[data-theme="light"] .term-body .cmd{color:#f7eef3}
+:root[data-theme="light"] .term-body .out{color:#e7d3de}
+:root[data-theme="light"] .term-body .cm{color:#9f8694}
+:root[data-theme="light"] .term-bar .tt{color:#b394a6}
+
+/* theme toggle button */
+.theme-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:11px;
+  border:1px solid var(--line-2);background:rgba(255,134,184,.05);color:var(--ink);cursor:pointer;
+  transition:border-color .25s,background .25s,transform .25s}
+.theme-btn:hover{border-color:var(--pink);background:rgba(255,134,184,.12);transform:translateY(-2px)}
+.theme-btn svg{width:18px;height:18px}
+.mobile-theme{margin-top:26px;display:flex;align-items:center;gap:12px;font-family:var(--font-m);font-size:13px;color:var(--muted);letter-spacing:.08em}
+
+/* case-study modal action row */
+.m-actions{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}

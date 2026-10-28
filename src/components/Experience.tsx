@@ -10,8 +10,8 @@ export default function Experience() {
         <span className="eyebrow">Experience</span>
         <h2 className="sec-title">Where I&apos;ve built.</h2>
         <p className="sec-sub">
-          Six roles across AI, data engineering, full-stack and 3D — from indie game maps to production media-AI
-          pipelines.
+          Seven roles across AI, data engineering, full-stack and 3D — from indie game maps to production software
+          at ListenFirst Media.
         </p>
       </Reveal>
 

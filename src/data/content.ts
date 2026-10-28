@@ -27,11 +27,18 @@ export type Experience = {
 
 export const EXPERIENCE: Experience[] = [
   {
-    role: "AI Engineer Intern",
-    company: "Listen First Media",
-    when: "May 2026 — Present",
+    role: "Junior Software Developer",
+    company: "ListenFirst Media",
+    when: "Oct 2026 — Present",
     current: true,
-    desc: "Build and ship AI solutions that analyze media coverage — detecting key messages and sentiment, building automation pipelines, and turning news & communications data into insight through robust, user-friendly dashboards.",
+    desc: "Converted from the AI engineering internship into a full-time developer role — building and shipping production software across the platform: internal tools, APIs, dashboards and monitoring systems that keep data flowing reliably.",
+    tech: ["TypeScript", "Next.js", "Python", "REST APIs", "Dashboards", "Automation"],
+  },
+  {
+    role: "AI Engineer Intern",
+    company: "ListenFirst Media",
+    when: "May 2026 — Sep 2026",
+    desc: "Built and shipped AI solutions that analyze media coverage — detecting key messages and sentiment, building automation pipelines, and turning news & communications data into insight through robust, user-friendly dashboards.",
     tech: ["Python", "LLMs", "NLP", "Sentiment AI", "Automation", "Dashboards"],
   },
   {
@@ -82,8 +89,16 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    key: "apimon",
+    num: "P/01 · platform · tooling",
+    kicker: "developer tools",
+    title: "API Monitoring Dashboard",
+    desc: "Internal dashboard that tracks API / SaaS usage, quotas and renewal dates in one place — with automated email alerts when a service crosses a usage threshold.",
+    tech: ["Next.js", "TypeScript", "Recharts", "GitHub Actions"],
+  },
+  {
     key: "meltwater",
-    num: "P/01 · ai · nlp",
+    num: "P/02 · ai · nlp",
     kicker: "ai / nlp",
     title: "Meltwater Sentiment Tagger",
     desc: "Automated sentiment-tagging pipeline for large-scale media coverage from Meltwater — classifying articles at scale so analysts stop tagging by hand.",
@@ -91,7 +106,7 @@ export const PROJECTS: Project[] = [
   },
   {
     key: "minimart",
-    num: "P/02 · data eng",
+    num: "P/03 · data eng",
     kicker: "data engineering",
     title: "Minimart — E-commerce + ETL",
     desc: "An e-commerce platform backed by Python + Apache Spark ETL pipelines that clean, transform and integrate datasets for analytics, surfaced in Power BI.",
@@ -99,7 +114,7 @@ export const PROJECTS: Project[] = [
   },
   {
     key: "youtube",
-    num: "P/03 · analytics",
+    num: "P/04 · analytics",
     kicker: "analytics",
     title: "YouTube Channel Analysis",
     desc: "Pulled channel data via the YouTube API, transformed it with Pandas, and visualized subscriber growth, views and engagement in interactive Power BI dashboards.",
@@ -107,7 +122,7 @@ export const PROJECTS: Project[] = [
   },
   {
     key: "blissful",
-    num: "P/04 · full-stack",
+    num: "P/05 · full-stack",
     kicker: "full-stack",
     title: "Blissful Events",
     desc: "A fully responsive event-management website that automates event registration end to end, improving planning efficiency for organizers.",
@@ -115,7 +130,7 @@ export const PROJECTS: Project[] = [
   },
   {
     key: "soc",
-    num: "P/05 · security",
+    num: "P/06 · security",
     kicker: "cybersecurity",
     title: "SOC Analyst Lab",
     desc: "Hands-on blue-team work behind my EC-Council Certified SOC Analyst credential — SIEM triage, packet analysis and vulnerability scanning.",
@@ -134,13 +149,41 @@ export type CaseStudy = {
   solution: string;
   result: string;
   learned: string;
+  repo?: string;
 };
 
 export const CASE_STUDIES: Record<string, CaseStudy> = {
+  apimon: {
+    tag: "Platform Tooling · @ ListenFirst Media",
+    title: "API Monitoring Dashboard",
+    tech: ["Next.js 15", "TypeScript", "Tailwind CSS", "shadcn/ui", "Recharts", "GitHub Actions", "SMTP"],
+    problem:
+      "API and SaaS usage was scattered across provider dashboards — nobody could see quotas, usage and renewal dates in one place, and overage limits were only noticed after they were hit.",
+    approach:
+      "Built a single internal dashboard that pulls live usage, quotas and renewal dates for each service, normalizes the numbers, and automatically emails an alert the moment a service crosses a usage threshold.",
+    arch: [
+      "provider APIs (Zyte · SadCaptcha · Decodo + webhooks)",
+      "server-side credentials + normalization",
+      "Next.js dashboard (Recharts)",
+      "GitHub Actions cron (every 15 min)",
+      "threshold check + dedup",
+      "SMTP email alert",
+    ],
+    challenges:
+      "Each provider exposes usage differently (some only via webhook threshold events), credentials had to stay server-side, and alerts couldn't spam — one per threshold per billing cycle.",
+    solution:
+      "Kept all keys server-side and sent the browser only normalized numbers, scheduled checks with a GitHub Actions cron hitting a server endpoint, and deduplicated alerts to one per threshold per cycle — showing honest 'can't read this provider' notes instead of fake numbers.",
+    result:
+      "One screen for every service's usage, quota and renewal date, with proactive email alerts before limits are breached — no more surprise overages or manual dashboard-hopping.",
+    learned:
+      "Honest observability beats pretty fake numbers. Surface what you can actually measure, label the rest, and alert before the cliff — not after.",
+    repo: "https://github.com/himashu-LFM/API-Monitoring",
+  },
   loan: {
     tag: "Featured · AI / RAG",
     title: "AI Loan Advisory Chatbot",
     tech: ["Python", "LangChain", "RAG", "FAISS", "Mistral AI", "Hugging Face", "Streamlit"],
+    repo: "https://github.com/khushi-gehlot/AI-Loan-Advisory-Chatbot",
     problem:
       "Loan customers ask nuanced, policy-specific questions. A vanilla LLM confidently invents answers — dangerous when the topic is someone's money and eligibility.",
     approach:
@@ -164,7 +207,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       "Retrieval quality — not the LLM — is the real product. Gating and verification matter more than a bigger model.",
   },
   meltwater: {
-    tag: "AI / NLP · @ Listen First Media",
+    tag: "AI / NLP · @ ListenFirst Media",
     title: "Meltwater Sentiment Tagger",
     tech: ["Python", "NLP", "LLMs", "Transformers", "Pandas", "Meltwater"],
     problem:
@@ -192,6 +235,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     tag: "Data Engineering",
     title: "Minimart — E-commerce + ETL",
     tech: ["Databricks", "Apache Spark", "Python", "Flask", "JavaScript", "Power BI"],
+    repo: "https://github.com/khushi-gehlot/Minimart-Ecommerce",
     problem:
       "An e-commerce store generates messy, fragmented data across products, orders and users — useless for decisions until it's cleaned and unified.",
     approach:
@@ -216,6 +260,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     tag: "Data Analytics",
     title: "YouTube Channel Analysis",
     tech: ["Python", "YouTube API", "Pandas", "Power BI", "CSV"],
+    repo: "https://github.com/khushi-gehlot/Youtube-Channel-Analysis-cwh",
     problem:
       "Channel performance is buried in raw API responses — no easy way to see what's actually growing.",
     approach:
@@ -233,6 +278,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     tag: "Full-Stack",
     title: "Blissful Events",
     tech: ["HTML", "CSS", "JavaScript", "PHP"],
+    repo: "https://github.com/khushi-gehlot/Event-Management-itr",
     problem: "Event organizers juggled registrations manually, which was slow and error-prone.",
     approach:
       "Planned and built a fully responsive event-management website that automates event registration end to end.",
@@ -320,7 +366,7 @@ export const CERTS = [
 ];
 
 export const BUILDING_NOW = [
-  { title: "AI Media Intelligence", desc: "Sentiment + key-message detection over live news streams @ Listen First Media." },
+  { title: "AI Media Intelligence", desc: "Sentiment + key-message detection over live news streams @ ListenFirst Media." },
   { title: "RAG Systems", desc: "Grounded retrieval with faithfulness checks — pushing past demo-grade chatbots." },
   { title: "Data Pipelines", desc: "Spark + Databricks ETL that stays clean, tested and analytics-ready." },
   { title: "Developer Tools", desc: "Automation and small tools that remove the boring parts of the workflow." },

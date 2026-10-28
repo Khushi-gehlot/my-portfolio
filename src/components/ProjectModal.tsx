@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { Github } from "lucide-react";
 import { CASE_STUDIES } from "@/data/content";
 
 export default function ProjectModal({ activeKey, onClose }: { activeKey: string | null; onClose: () => void }) {
@@ -71,6 +72,14 @@ export default function ProjectModal({ activeKey, onClose }: { activeKey: string
               <h4>What I learned</h4>
               <p>{d.learned}</p>
             </div>
+            {d.repo && (
+              <div className="m-actions">
+                <a href={d.repo} target="_blank" rel="noopener noreferrer" className="btn btn-primary mag">
+                  <Github size={16} />
+                  View code
+                </a>
+              </div>
+            )}
           </div>
         )}
       </div>

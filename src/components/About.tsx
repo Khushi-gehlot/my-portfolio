@@ -5,7 +5,7 @@ import { Reveal, Stagger, StaggerItem } from "./Reveal";
 import Terminal from "./Terminal";
 
 const META = [
-  { label: "Currently", Icon: Clock, items: ["AI Engineer Intern", "@ Listen First Media", "Media intelligence + AI"] },
+  { label: "Currently", Icon: Clock, items: ["Junior Software Developer", "@ ListenFirst Media", "Platform & tooling"] },
   { label: "Building", Icon: Layers, items: ["RAG systems", "Data pipelines", "AI automation"] },
   { label: "Learning", Icon: TrendingUp, items: ["LLM evaluation", "Vector search", "MLOps"] },
   { label: "Exploring", Icon: Search, items: ["Generative AI", "Agentic tools", "Cybersecurity / SOC"] },
@@ -32,9 +32,9 @@ export default function About() {
           <p className="about-body">
             I&apos;m a Data Science undergrad at <b>SKIT (CGPA 9.1)</b>, but I spend most of my time building:{" "}
             <b>RAG chatbots</b> that don&apos;t hallucinate, <b>ETL pipelines</b> on Spark and Databricks, and{" "}
-            <b>AI automation</b> that reads news the way an analyst would. Right now I&apos;m an{" "}
-            <b>AI Engineer Intern at Listen First Media</b>, shipping AI + data tooling for media intelligence —
-            sentiment tagging, key-message detection, and dashboards.
+            <b>AI automation</b> that reads news the way an analyst would. I joined{" "}
+            <b>ListenFirst Media</b> as an AI Engineer Intern and now build full-time as a{" "}
+            <b>Junior Software Developer</b> — shipping internal tools, APIs, dashboards and monitoring systems.
           </p>
           <p className="about-body">
             My range is deliberately wide — AI/ML, data engineering, full-stack, a stint in 3D modelling, and a
@@ -61,7 +61,7 @@ export default function About() {
       </div>
 
       <Reveal>
-        <div style={{ marginTop: 52 }}>
+        <div style={{ marginTop: 36 }}>
           <Terminal />
         </div>
       </Reveal>

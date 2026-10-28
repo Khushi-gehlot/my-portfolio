@@ -230,6 +230,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       "Sharply cut manual tagging effort and made sentiment consistent across large volumes of coverage — freeing analysts to focus on insight instead of labelling.",
     learned:
       "AI should remove the boring 80% and route the ambiguous 20% to a human. Confidence-aware automation beats a black box.",
+    repo: "https://github.com/himashu-LFM/meltwater_tagging",
   },
   minimart: {
     tag: "Data Engineering",

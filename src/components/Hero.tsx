@@ -76,7 +76,6 @@ export default function Hero() {
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: EASE, delay: 0.35 }}
           >
-            <span className="photo-corner tl" />
             <span className="photo-corner br" />
             <Image
               src="/profile.jpg"
@@ -89,15 +88,11 @@ export default function Hero() {
               <span className="d" />
               AI Engineer
             </span>
-            <span className="photo-tag">// khushi_gehlot.jpg</span>
+            <span className="photo-tag">// khushi_gehlot</span>
           </motion.div>
         </div>
       </div>
 
-      <a href="#about" className="scroll-ind" aria-label="Scroll down">
-        <span>SCROLL</span>
-        <span className="mouse" />
-      </a>
     </section>
   );
 }

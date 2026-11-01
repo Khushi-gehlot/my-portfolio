@@ -138,7 +138,7 @@ export default function Projects() {
             <span className="open">
               <ArrowUpRight size={18} />
             </span>
-            <div className="pnum">P/07 · index</div>
+            <div className="pnum">P/08 · index</div>
             <div className="pt">More on GitHub →</div>
             <div className="pd">
               Experiments, coursework and works-in-progress live on my GitHub and LeetCode (

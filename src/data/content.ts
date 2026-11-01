@@ -89,8 +89,16 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    key: "voice",
+    num: "P/01 · ai · voice · wip",
+    kicker: "voice ai",
+    title: "Voice Assistant",
+    desc: "A hands-free voice assistant — speech in, actions out. Half-built: speech capture, transcription and basic intents work; response generation and TTS polish are next.",
+    tech: ["Python", "Speech-to-Text", "NLP", "Text-to-Speech"],
+  },
+  {
     key: "apimon",
-    num: "P/01 · platform · tooling",
+    num: "P/02 · platform · tooling",
     kicker: "developer tools",
     title: "API Monitoring Dashboard",
     desc: "Internal dashboard that tracks API / SaaS usage, quotas and renewal dates in one place — with automated email alerts when a service crosses a usage threshold.",
@@ -98,7 +106,7 @@ export const PROJECTS: Project[] = [
   },
   {
     key: "meltwater",
-    num: "P/02 · ai · nlp",
+    num: "P/03 · ai · nlp",
     kicker: "ai / nlp",
     title: "Meltwater Sentiment Tagger",
     desc: "Automated sentiment-tagging pipeline for large-scale media coverage from Meltwater — classifying articles at scale so analysts stop tagging by hand.",
@@ -106,7 +114,7 @@ export const PROJECTS: Project[] = [
   },
   {
     key: "minimart",
-    num: "P/03 · data eng",
+    num: "P/04 · data eng",
     kicker: "data engineering",
     title: "Minimart — E-commerce + ETL",
     desc: "An e-commerce platform backed by Python + Apache Spark ETL pipelines that clean, transform and integrate datasets for analytics, surfaced in Power BI.",
@@ -114,7 +122,7 @@ export const PROJECTS: Project[] = [
   },
   {
     key: "youtube",
-    num: "P/04 · analytics",
+    num: "P/05 · analytics",
     kicker: "analytics",
     title: "YouTube Channel Analysis",
     desc: "Pulled channel data via the YouTube API, transformed it with Pandas, and visualized subscriber growth, views and engagement in interactive Power BI dashboards.",
@@ -122,7 +130,7 @@ export const PROJECTS: Project[] = [
   },
   {
     key: "blissful",
-    num: "P/05 · full-stack",
+    num: "P/06 · full-stack",
     kicker: "full-stack",
     title: "Blissful Events",
     desc: "A fully responsive event-management website that automates event registration end to end, improving planning efficiency for organizers.",
@@ -130,7 +138,7 @@ export const PROJECTS: Project[] = [
   },
   {
     key: "soc",
-    num: "P/06 · security",
+    num: "P/07 · security",
     kicker: "cybersecurity",
     title: "SOC Analyst Lab",
     desc: "Hands-on blue-team work behind my EC-Council Certified SOC Analyst credential — SIEM triage, packet analysis and vulnerability scanning.",
@@ -153,6 +161,32 @@ export type CaseStudy = {
 };
 
 export const CASE_STUDIES: Record<string, CaseStudy> = {
+  voice: {
+    tag: "AI · Voice · Work in progress",
+    title: "Voice Assistant",
+    tech: ["Python", "Speech-to-Text", "NLP / Intent", "Text-to-Speech", "LLM"],
+    problem:
+      "Typing isn't always the fastest way to drive a tool — I wanted a hands-free assistant you can just talk to, that listens, understands intent and talks back.",
+    approach:
+      "A spoken-language pipeline: capture audio, transcribe it to text, parse the intent, run the matching action (or an LLM response), then speak the answer back.",
+    arch: [
+      "mic / audio input",
+      "speech-to-text",
+      "intent parsing (NLP)",
+      "action handler / LLM response",
+      "text-to-speech",
+      "spoken reply",
+    ],
+    challenges:
+      "Latency across the chain and recognition errors — the assistant has to feel responsive and degrade gracefully when it mishears.",
+    solution:
+      "Kept the pipeline modular so each stage (STT, intent, TTS) can be swapped and tuned independently, with fallbacks when transcription confidence is low.",
+    result:
+      "Work in progress — speech capture, transcription and basic intents are working today; richer response generation and TTS polish are the next milestones.",
+    learned:
+      "Voice UX lives or dies on latency and error-handling, not just accuracy — a fast 'I didn't catch that' beats a slow perfect answer.",
+    repo: "https://github.com/Khushi-gehlot/SKIT-DS-2023-2027-30",
+  },
   apimon: {
     tag: "Platform Tooling · @ ListenFirst Media",
     title: "API Monitoring Dashboard",
@@ -327,6 +361,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "RAG",
       "LangChain",
       "LLMs",
+      "Claude Skills",
       "FAISS / Vector DB",
       "NLP",
       "Hugging Face",
@@ -366,9 +401,17 @@ export const CERTS = [
   { icon: "database", title: "Databricks Fundamentals", org: "Databricks" },
 ];
 
-export const BUILDING_NOW = [
+export type BuildingItem = { title: string; desc: string; link?: string };
+
+export const BUILDING_NOW: BuildingItem[] = [
+  {
+    title: "Voice Assistant",
+    desc: "A hands-free voice assistant — speech-to-text, intent handling and spoken responses.",
+    link: "https://github.com/Khushi-gehlot/SKIT-DS-2023-2027-30",
+  },
+  {
+    title: "LF Code Map for Claude",
+    desc: "Mapping the ListenFirst codebase into context Claude can reason over — repo & platform maps, guided by Sanjeev Sharma.",
+  },
   { title: "AI Media Intelligence", desc: "Sentiment + key-message detection over live news streams @ ListenFirst Media." },
-  { title: "RAG Systems", desc: "Grounded retrieval with faithfulness checks — pushing past demo-grade chatbots." },
-  { title: "Data Pipelines", desc: "Spark + Databricks ETL that stays clean, tested and analytics-ready." },
-  { title: "Developer Tools", desc: "Automation and small tools that remove the boring parts of the workflow." },
 ];

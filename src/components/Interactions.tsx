@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * Mounts once and wires the two pointer micro-interactions that are simplest to
@@ -8,6 +9,7 @@ import { useEffect } from "react";
  * radial glow that tracks the cursor inside `.pcard` project cards.
  */
 export default function Interactions() {
+  const pathname = usePathname();
   useEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
     const fine = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
@@ -44,7 +46,7 @@ export default function Interactions() {
     });
 
     return () => cleanups.forEach((fn) => fn());
-  }, []);
+  }, [pathname]);
 
   return null;
 }

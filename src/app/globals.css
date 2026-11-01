@@ -316,7 +316,13 @@ nav.links a.active{color:var(--ink);background:rgba(255,134,184,.08)}
 .edu-mini .pct{font-family:var(--font-d);font-weight:800;font-size:1.4rem;color:var(--pink-soft);margin-top:8px}
 
 /* ===== BUILDING NOW ===== */
-.now-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.now-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}
+.now-link{color:inherit;display:inline-block}
+.now-card .nt{display:flex;align-items:center;gap:8px}
+.now-link .nt{transition:color .25s}
+.now-link:hover .nt{color:var(--pink-soft)}
+.now-link .nt svg{color:var(--pink);flex-shrink:0;transition:transform .25s}
+.now-link:hover .nt svg{transform:translate(2px,-2px)}
 .now-card{border:1px solid var(--line);border-radius:14px;padding:20px;background:linear-gradient(180deg,var(--bg-2),var(--bg-1));position:relative;overflow:hidden}
 .now-card .pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-m);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--good);margin-bottom:12px}
 .now-card .pill .d{width:6px;height:6px;border-radius:50%;background:var(--good);animation:pulse 1.8s infinite}
@@ -441,3 +447,18 @@ footer{border-top:1px solid var(--line);padding:38px 0 46px;position:relative;z-
 
 /* case-study modal action row */
 .m-actions{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}
+
+/* hero photo pills adapt to light mode (were hard-coded dark) */
+:root[data-theme="light"] .photo-badge,
+:root[data-theme="light"] .photo-tag{background:rgba(253,246,249,.82);border-color:var(--line-2)}
+
+/* ===== multi-page route layout ===== */
+.route-page{min-height:100svh;display:flex;flex-direction:column}
+.route-body{flex:1 0 auto}
+.route-body>section:first-child{padding-top:clamp(104px,13vh,150px)}
+.route-body .pad{padding-bottom:clamp(40px,6vw,72px)}
+
+/* page-transition (CSS, always resolves visible — no stuck opacity) */
+.page-enter{animation:pageIn .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pageIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.page-enter{animation:none}}

@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
 import { Reveal, Stagger, StaggerItem } from "./Reveal";
 import { BUILDING_NOW } from "@/data/content";
 
@@ -17,7 +18,16 @@ export default function BuildingNow() {
               <span className="d" />
               Active
             </span>
-            <div className="nt">{n.title}</div>
+            {n.link ? (
+              <a href={n.link} target="_blank" rel="noopener noreferrer" className="now-link" aria-label={`${n.title} on GitHub`}>
+                <div className="nt">
+                  {n.title}
+                  <ArrowUpRight size={16} />
+                </div>
+              </a>
+            ) : (
+              <div className="nt">{n.title}</div>
+            )}
             <div className="nd">{n.desc}</div>
           </StaggerItem>
         ))}

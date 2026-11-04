@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 const SEQ = [
   { p: "whoami", o: "khushi-gehlot — ai / data / software engineer" },
   { p: "focus", o: "AI · Generative AI · Data Engineering · Automation" },
-  { p: "cat current_role.txt", o: "AI Engineer Intern @ Listen First Media" },
+  { p: "cat current_role.txt", o: "Junior Software Developer @ ListenFirst Media" },
   { p: "ls ~/building", o: "rag-systems/  data-pipelines/  ai-automation/  dev-tools/" },
   { p: "status", o: "● building... open to opportunities" },
 ];

@@ -49,9 +49,9 @@ export default function Hero() {
             <i>Builder</i>
           </motion.div>
           <motion.p className="lede" {...itemAnim}>
-            3rd-year B.Tech Data Science student building <b>AI systems, data pipelines, and developer tools</b>{" "}
-            that turn messy, unstructured data into decisions. Currently engineering AI for media intelligence at{" "}
-            <b>Listen First Media</b>.
+            Final-year B.Tech Data Science student building <b>AI systems, data pipelines, and developer tools</b>{" "}
+            that turn messy, unstructured data into decisions. Now a <b>Junior Software Developer</b> at{" "}
+            <b>ListenFirst Media</b>, building tools and data systems for media intelligence.
           </motion.p>
           <motion.div className="hero-cta" {...itemAnim}>
             <a href="#projects" className="btn btn-primary mag">
@@ -76,7 +76,6 @@ export default function Hero() {
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: EASE, delay: 0.35 }}
           >
-            <span className="photo-corner tl" />
             <span className="photo-corner br" />
             <Image
               src="/profile.jpg"
@@ -89,15 +88,11 @@ export default function Hero() {
               <span className="d" />
               AI Engineer
             </span>
-            <span className="photo-tag">// khushi_gehlot.jpg</span>
+            <span className="photo-tag">// khushi_gehlot</span>
           </motion.div>
         </div>
       </div>
 
-      <a href="#about" className="scroll-ind" aria-label="Scroll down">
-        <span>SCROLL</span>
-        <span className="mouse" />
-      </a>
     </section>
   );
 }
